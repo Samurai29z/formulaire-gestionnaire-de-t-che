@@ -1,7 +1,8 @@
+
 body{
     background-color: aqua;
 }
-.contener{
+.tout{
     background-color: white;
     height: 500px;
     width: 70%;
@@ -21,4 +22,30 @@ h1{
 }
 .submit{
     padding: 10px;
+}
+.todos{
+    text-align: center;
+    padding: 30px;
+}
+.contener{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.todolist{
+    list-style: none;
+    margin: auto;
+    min-width: 50%;
+}
+.todobox{
+    background-color: bisque;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    height: 30px;
+}
+button{
+    background-color: bisque;
+    cursor: pointer;
+    border: none;
 }

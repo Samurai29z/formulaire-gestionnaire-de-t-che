@@ -6,13 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="contener">
+   <div class="tout">
+    <form>
         <h1>Gestionnaire de tache</h1>
-       <div class="input">
-           <input type="text" placeholder="Titre" class="saisi"><button type="submit" class="submit">Ajouter</button>
-       </div>
-    </div>
+        <div class="input">
+           <input type="text" placeholder="Titre" class="saisi">
+           <button type="submit" class="submit">Ajouter</button>
+        </div>
+        <div class="todos">
+             <select name="todos" class="search">
+                <option value="all">toute les taches</option>
+                <option value="done">taches achevé</option>
+                <option value="undone">taches non achevés</option>
+             </select>
+           </div>
+   </form>
+   <div class="contener">
+       <ul class="todolist">
+           <!-- <div class="todobox">
+              <button class="btn"><i class="fa-solid fa-check"></i></button>
+             <li class="todoitem">nfnhjkdt,fy</li>
+             <button class="bttn"><i class="fa-solid fa-xmark"></i></button>
+           </div> -->
+           <!-- <div class="todobox">
+              <button><i class="fa-solid fa-check"></i></button>
+              <li class="todoitem">du;lr-lk-uk</li>
+              <button><i class="fa-solid fa-xmark"></i></button>
+           </div>
+           <div class="todobox">
+              <button><i class="fa-solid fa-check"></i></button>
+              <li class="todoitem">dtuke-k-_</li>
+              <button><i class="fa-solid fa-xmark"></i></button>
+           </div>
+           <div class="todobox">
+              <button><i class="fa-solid fa-check"></i></button>
+              <li class="todoitem">bfthryhr</li>
+              <button><i class="fa-solid fa-xmark"></i></button>
+           </div>
+           <div class="todobox">
+              <button><i class="fa-solid fa-check"></i></button>
+              <li class="todoitem">jbzgfygrug</li>
+              <button><i class="fa-solid fa-xmark"></i></button>
+           </div> -->
+       </ul>
+   </div>
+   </div>
 </body>
+<script src="script.js"></script>
 </html>
