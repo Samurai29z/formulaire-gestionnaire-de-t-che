@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Gestionnaire de tâche</title>
+	<style type="text/css">
+	    *{
+	    	margin: 0;
+	    	padding: 0;
+	    	box-sizing: border-box;
+	    }
+		body{
+			text-align: center;
+			background-color: skyblue;
+			display: flex;
+		}
+		form{
+			margin: 0 auto;
+			margin-top: 100px;
+			background-color: white;
+			border-radius: 10px;
+			padding: 40px;
+			position: relative;
+		}
+		
+		.dolist .donelist{
+			margin: 5px 0;
+			padding: 20px;
+		}
+		#put{
+			width: 100%;
+			display: flex;
+			padding: 10px 0;
+
+		}
+		#put > input[type="text"]{
+			width: 90%;
+			color: #333;
+			border: none;
+			border-bottom: 2px solid #666;
+		}
+		#put button{
+			margin: 0 10px;
+			outline: none;
+			padding: 7px;
+			cursor: pointer;
+			width: 80px;
+			color: white;
+			background: skyblue;
+			border: none;
+
+		}
+		.dolist, .donelist{
+			margin: 5px 0;
+			padding: 20px;
+		}
+		h4{
+			font-size: 25px;
+			text-align: center;
+			text-transform: uppercase;
+			color: #818181;
+		}
+		ol{
+			list-style: none;
+			counter-reset: my-counter;
+		}
+		ol li{
+			width: 100%;
+			padding: 10px;
+			margin: 5px 0;
+			background-color: red;
+			text-align: left;
+			font-size: 20px;
+			counter-increment: my-counter;
+
+		}
+		ol.donelist li{
+			background: green;
+		}
+		ol li::before{
+			content: counter(my-counter);
+			background: white;
+			width: 2rem;
+			height: 2rem;
+			border-radius: 50%;
+			display: inline-block;
+			line-height: 2rem;
+			text-align: center;
+			margin-right: 0.5rem;
+
+		}
+		li button{
+			float: right;
+			padding: 5px;
+			font-size: 20px;
+			line-height: 20px;
+			margin-right: 5px;
+			background: none;
+			border: none;
+			cursor: pointer;
+		}
+
+		.plus{
+			display: none;
+		}
+
+		.done{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	
+    <form>
+    	<h1>Gestionnaire de tâche</h1>
+    	<div id="put">
+    		<input type="text" size="45" maxlength="150" placeholder="Titre" id="userInput">
+    		<button class="push" type="submit">Ajouter</button>
+    	</div>
+    
+    		<ol class="dolist">
+    			<h4>Not completed</h4>
+    		</ol>
+    		<ol class="donelist">
+    			<h4>Completed</h4>
+    		</ol>
+    	
+    </form>
+  	<script type="text/javascript">
+  		// déclaration de la constante qui prend la valeur de input
+  		const input = document.querySelector('input');
+  		// déclaration de la constante qui prend la valeur de button
+  		const btn = document.querySelector('#put > button');
+
+  		btn.addEventListener('click' , addList);
+  		input.addEventListener('click' , (e)=>{
+  			(e.keycode == 13 ? addList(e) : null);
+  		});
+
+  		function addList(e){
+  			const dolist = document.querySelector('.dolist');
+  			const donelist = document.querySelector('.donelist');
+
+  			const newLi = document.createElement('li');
+  			const checkBtn = document.createElement('button');
+  			const delBtn = document.createElement('button');
+  			const chekBtn = document.createElement('button');
+  			chekBtn.classList.add("plus");
+
+  			checkBtn.innerHTML = '<i class="fa fa-check"></i>';
+  			delBtn.innerHTML = '<i class="fa fa-trash"></i>';
+  			chekBtn.innerHTML = '<i class="fa fa-arrow-up"></i>';
+
+  			
+  			if (input.value === '') {
+  				alert("Décrivez une tâche");
+  			}
+
+  			else{
+  				newLi.textContent = input.value;
+  				input.value = '';
+  				dolist.appendChild(newLi);
+  				newLi.appendChild(delBtn);
+  				newLi.appendChild(checkBtn);
+  				newLi.appendChild(chekBtn);
+  			}
+
+  			checkBtn.addEventListener('click' , function(){
+  				const parent = this.parentNode;
+  				checkBtn.remove();
+  				newLi.appendChild(chekBtn);
+  				donelist.appendChild(parent);
+  				chekBtn.classList.toggle("done");
+  				
+  			});
+
+  			delBtn.addEventListener('click' , function(){
+  				const parent = this.parentNode;
+  				parent.remove();
+
+
+
+  			});
+
+  			chekBtn.addEventListener('click' , function(){
+  				const parent = this.parentNode;
+  				chekBtn.remove();
+  				newLi.appendChild(checkBtn);
+  				dolist.appendChild(parent);
+
+  			});
+  			
+
+  			e.preventDefault();
+  			
+		}
+		
+  	</script>
+</body>
+</html>
