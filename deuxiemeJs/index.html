@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Gestionnaire de tâche</title>
+
 	<style type="text/css">
 	    *{
 	    	margin: 0;
@@ -109,6 +110,25 @@
 		.done{
 			display: block;
 		}
+		===============================/*resposive design*/========================
+		@media screen and (max-width : 700px){
+		body{
+			text-align: center;
+			background-color: skyblue;
+			display: flex;
+		}
+		form{
+			margin: 0 auto;
+			margin-top: 100px;
+			background-color: white;
+			border-radius: 10px;
+			padding: 40px;
+			position: relative;
+		}
+
+		
+		}
+
 	</style>
 </head>
 <body>
@@ -133,12 +153,12 @@
   		const input = document.querySelector('input');
   		// déclaration de la constante qui prend la valeur de button
   		const btn = document.querySelector('#put > button');
-
+  		// évenement lié au btn et à input
   		btn.addEventListener('click' , addList);
   		input.addEventListener('click' , (e)=>{
   			(e.keycode == 13 ? addList(e) : null);
   		});
-
+  		// fonction déclenchée par le click du btn ajouter
   		function addList(e){
   			const dolist = document.querySelector('.dolist');
   			const donelist = document.querySelector('.donelist');
@@ -148,12 +168,12 @@
   			const delBtn = document.createElement('button');
   			const chekBtn = document.createElement('button');
   			chekBtn.classList.add("plus");
-
+  			// valeur  des btn sur la page html
   			checkBtn.innerHTML = '<i class="fa fa-check"></i>';
   			delBtn.innerHTML = '<i class="fa fa-trash"></i>';
   			chekBtn.innerHTML = '<i class="fa fa-arrow-up"></i>';
 
-  			
+  			// condition pour valide la saisie
   			if (input.value === '') {
   				alert("Décrivez une tâche");
   			}
@@ -166,7 +186,7 @@
   				newLi.appendChild(checkBtn);
   				newLi.appendChild(chekBtn);
   			}
-
+  			// déclaration des fonctions des icônes sur les listes
   			checkBtn.addEventListener('click' , function(){
   				const parent = this.parentNode;
   				checkBtn.remove();
