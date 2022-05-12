@@ -23,10 +23,6 @@ h1{
 .submit{
     padding: 10px;
 }
-.todos{
-    text-align: center;
-    padding: 30px;
-}
 .contener{
 display: flex;
 justify-content: center;
@@ -48,4 +44,14 @@ button{
     background-color: bisque;
     cursor: pointer;
     border: none;
+}
+.fa-check,.fa-xmark{
+    pointer-events: none;
+}
+.done{
+    text-decoration: line-through;
+    opacity: 0,5;
+}
+.fail{
+    opacity: 0;
 }

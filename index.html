@@ -13,16 +13,10 @@
     <form>
         <h1>Gestionnaire de tache</h1>
         <div class="input">
-           <input type="text" placeholder="Titre" class="saisi">
+           <input type="text" placeholder="Titre" class="saisi" required>
            <button type="submit" class="submit">Ajouter</button>
         </div>
-        <div class="todos">
-             <select name="todos" class="search">
-                <option value="all">toute les taches</option>
-                <option value="done">taches achevé</option>
-                <option value="undone">taches non achevés</option>
-             </select>
-           </div>
+        <div class="todos"></div>
    </form>
    <div class="contener">
        <ul class="todolist">
